@@ -29,5 +29,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   experiments: {
     typedRoutes: true,
     reactCompiler: true,
+    // GitHub Pages 项目站点子路径（如 /cike-demo/）。构建时注入：
+    //   EXPO_PUBLIC_BASE_PATH=/cike-demo npx expo export -p web --clear
+    // 注意：改动后必须 --clear，否则 Metro 缓存会吞掉 baseUrl。
+    ...(process.env.EXPO_PUBLIC_BASE_PATH
+      ? { baseUrl: process.env.EXPO_PUBLIC_BASE_PATH }
+      : {}),
   },
 });
