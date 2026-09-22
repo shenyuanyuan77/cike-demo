@@ -29,10 +29,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   experiments: {
     typedRoutes: true,
     reactCompiler: true,
-    // GitHub Pages 项目站点部署在子路径（如 /cike-demo/），构建时由环境变量注入：
-    //   EXPO_PUBLIC_BASE_PATH=/cike-demo npx expo export -p web
-    ...(process.env.EXPO_PUBLIC_BASE_PATH
-      ? { basePath: process.env.EXPO_PUBLIC_BASE_PATH }
-      : {}),
   },
 });
