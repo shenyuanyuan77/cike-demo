@@ -1,0 +1,117 @@
+<mxGraphModel dx="1200" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1060" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="user" value="&lt;b&gt;用户&lt;/b&gt;&lt;br&gt;一句话描述此刻" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="60" y="40" width="180" height="62" as="geometry"/>
+    </mxCell>
+    <mxCell id="ct3t" value="三端同构 · Expo SDK 54 / RN 0.81 / expo-router" style="swimlane;startSize=34;html=1;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="130" width="380" height="140" as="geometry"/>
+    </mxCell>
+    <mxCell id="p_ios" value="iOS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;" vertex="1" parent="ct3t">
+      <mxGeometry x="24" y="52" width="100" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="p_and" value="Android&lt;br&gt;（本次预览）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="ct3t">
+      <mxGeometry x="140" y="52" width="100" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="p_web" value="Web / Expo Go" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="ct3t">
+      <mxGeometry x="256" y="52" width="100" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="ct2" value="app/ · expo-router 文件路由（typed routes + React Compiler）" style="swimlane;startSize=34;html=1;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="500" y="130" width="800" height="150" as="geometry"/>
+    </mxCell>
+    <mxCell id="pg_home" value="首页 (tabs)/index&lt;br&gt;输入一句话 / 灵感" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="ct2">
+      <mxGeometry x="24" y="52" width="150" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="pg_gen" value="generating&lt;br&gt;生成中（光球动画）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="ct2">
+      <mxGeometry x="214" y="52" width="180" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="pg_list" value="playlist 歌单&lt;br&gt;10 首 + 逐首 reason + 对话调整" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="ct2">
+      <mxGeometry x="434" y="52" width="190" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="pg_player" value="player&lt;br&gt;全屏播放器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="ct2">
+      <mxGeometry x="664" y="52" width="116" height="60" as="geometry"/>
+    </mxCell>
+    <mxCell id="t_tabs" value="(tabs)/history 歌单历史 · (tabs)/profile 我的" style="text;html=1;align=left;fontSize=11;fontColor=#666666;" vertex="1" parent="ct2">
+      <mxGeometry x="24" y="118" height="24" width="400" as="geometry"/>
+    </mxCell>
+    <mxCell id="ct3" value="components/ · GradientBackground · SearchInput · QuickChips · SongRow · MiniPlayer · MoodArtwork · AdjustPanel（统一 StyleSheet · barrel 导出）" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#999999;align=left;spacing=8;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="500" y="310" width="800" height="56" as="geometry"/>
+    </mxCell>
+    <mxCell id="ct4" value="lib/ · 业务逻辑层（纯函数 · 平台分流 · barrel 导出）" style="swimlane;startSize=34;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="430" width="1240" height="230" as="geometry"/>
+    </mxCell>
+    <mxCell id="b_orch" value="&lt;b&gt;playlist/generate.ts&lt;/b&gt;&lt;br&gt;generatePlaylist(scene) 编排&lt;br&gt;① parseIntent 拆意图&lt;br&gt;② searchSongs 召回&lt;br&gt;③ genReason ×10 并发&lt;br&gt;④ 合成 Playlist&lt;br&gt;⑤ 交给 storage 持久化&lt;br&gt;&lt;font color=&quot;#b85450&quot;&gt;任一步失败 → 整体降级&lt;/font&gt;" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#82b366;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct4">
+      <mxGeometry x="24" y="50" width="280" height="160" as="geometry"/>
+    </mxCell>
+    <mxCell id="b_llm" value="&lt;b&gt;llm/ · DeepSeek 客户端&lt;/b&gt;&lt;br&gt;callJson：JSON mode · 关 thinking&lt;br&gt;parseIntent：一句话 → 意图 JSON&lt;br&gt;（mood / energy / bpm / genres / seeds）&lt;br&gt;genReason：逐首 30 字理由&lt;br&gt;adjustIntent：对话式调整意图&lt;br&gt;&lt;font color=&quot;#d79b00&quot;&gt;key 由 .env 构建期注入&lt;/font&gt;" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct4">
+      <mxGeometry x="324" y="50" width="300" height="160" as="geometry"/>
+    </mxCell>
+    <mxCell id="b_music" value="&lt;b&gt;music/ · Audius 接入&lt;/b&gt;&lt;br&gt;search：召回 + 四级降级链&lt;br&gt;（全参数→去mood→仅query→trending）&lt;br&gt;client：host 发现 + 模块级缓存&lt;br&gt;player-runtime 平台分流：&lt;br&gt;native = expo-audio&lt;br&gt;web = HTMLAudioElement&lt;br&gt;&lt;font color=&quot;#d79b00&quot;&gt;stream URL 短时效 → 播放时懒解析&lt;/font&gt;" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct4">
+      <mxGeometry x="644" y="50" width="300" height="160" as="geometry"/>
+    </mxCell>
+    <mxCell id="b_store" value="&lt;b&gt;storage/ · 本地持久化&lt;/b&gt;&lt;br&gt;playlists 历史 → AsyncStorage&lt;br&gt;（Web=IndexedDB 明文）&lt;br&gt;settings：&lt;br&gt;移动 = SecureStore 加密&lt;br&gt;Web = AsyncStorage（UI 风险提示）" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#82b366;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct4">
+      <mxGeometry x="964" y="50" width="252" height="160" as="geometry"/>
+    </mxCell>
+    <mxCell id="cfg" value="config/ · constants.ts + env.ts —— 端点 / 模型名 / STORAGE_KEYS 集中管理 · EXPO_PUBLIC_* 构建期注入（key 不进业务代码）" style="rounded=1;html=1;whiteSpace=wrap;dashed=1;fillColor=#FFFFFF;strokeColor=#82b366;align=center;fontSize=12;" vertex="1" parent="1">
+      <mxGeometry x="60" y="676" width="1240" height="34" as="geometry"/>
+    </mxCell>
+    <mxCell id="ct5" value="外部服务" style="swimlane;startSize=34;html=1;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="734" width="1240" height="170" as="geometry"/>
+    </mxCell>
+    <mxCell id="x_proxy" value="&lt;b&gt;edge/deepseek-proxy&lt;/b&gt;&lt;br&gt;Cloudflare Workers + Hono · :8787&lt;br&gt;仅 Web 端中转（解决浏览器 CORS）&lt;br&gt;移动端不经过此代理" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#d6b656;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct5">
+      <mxGeometry x="30" y="46" width="310" height="104" as="geometry"/>
+    </mxCell>
+    <mxCell id="x_ds" value="&lt;b&gt;DeepSeek API&lt;/b&gt;&lt;br&gt;deepseek-v4-flash&lt;br&gt;response_format: json_object&lt;br&gt;输出结构化意图 / 理由文案" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#d6b656;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct5">
+      <mxGeometry x="400" y="46" width="330" height="104" as="geometry"/>
+    </mxCell>
+    <mxCell id="x_au" value="&lt;b&gt;Audius 开放曲库&lt;/b&gt;（免认证 · 大陆可直连）&lt;br&gt;/v1/tracks/search 召回 · /v1/tracks/trending 兜底&lt;br&gt;/v1/tracks/{id}/stream → 302 签名 MP3（~200 万首真实独立音乐）" style="rounded=1;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#d6b656;align=left;spacing=8;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="ct5">
+      <mxGeometry x="790" y="46" width="420" height="104" as="geometry"/>
+    </mxCell>
+    <mxCell id="note" value="&lt;b&gt;降级链（demo 友好，全部真实歌曲优先）&lt;/b&gt;&lt;br&gt;① DeepSeek 不可用 → 本地规则 inferIntent + 模板 reason 文案（歌曲仍是 Audius 真实召回）　② Audius 某组合空结果 → 自动放宽参数 / trending 兜底　③ 双双不可用 → 内置展示歌单（唯一含假数据的层）&lt;br&gt;&lt;b&gt;图例&lt;/b&gt;：橙 = LLM 链路　蓝 = Audius 链路　绿 = 编排/存储　红字 = 降级路径　①~⑥ = 一次生成的数据流顺序" style="rounded=1;html=1;whiteSpace=wrap;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacing=10;fontSize=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+      <mxGeometry x="60" y="924" width="1240" height="100" as="geometry"/>
+    </mxCell>
+    <mxCell id="e1" value="① 一句话 / 点生成" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;" edge="1" parent="1" source="user" target="pg_home">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e2" value="router.push" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;" edge="1" parent="ct2" source="pg_home" target="pg_gen">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e3" value="完成自动跳转" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;" edge="1" parent="ct2" source="pg_gen" target="pg_list">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e4" value="点歌曲 / 展开迷你播放器" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;" edge="1" parent="ct2" source="pg_list" target="pg_player">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e5" value="调 generatePlaylist" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="pg_gen" target="b_orch">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e6" value="① parseIntent　③ genReason ×10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#d79b00;" edge="1" parent="1" source="b_orch" target="b_llm">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e7" value="Web 端走代理" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#d79b00;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="b_llm" target="x_proxy">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e8" value="/chat/completions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#d79b00;" edge="1" parent="ct5" source="x_proxy" target="x_ds">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e9" value="移动端直连" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;dashed=1;strokeColor=#d79b00;exitX=1;exitY=1;entryX=0.35;entryY=0;" edge="1" parent="1" source="b_llm" target="x_ds">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e10" value="② searchSongs(intent)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#6c8ebf;" edge="1" parent="1" source="b_orch" target="b_music">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e11" value="③ 免认证检索" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#6c8ebf;exitX=0.75;exitY=1;entryX=0.4;entryY=0;" edge="1" parent="1" source="b_music" target="x_au">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e12" value="⑤ 存入历史" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#82b366;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" edge="1" parent="1" source="b_orch" target="b_store">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e13" value="⑥ 播放：懒解析 stream URL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;strokeColor=#6c8ebf;dashed=1;exitX=0;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="pg_player" target="b_music">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e14" value="同一套 JS 代码 · Metro 打包" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="ct3t" target="ct2">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+  </root>
+</mxGraphModel>
